@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    DSI2 - ISET Bizerte
                 </div>
 
                 <div class="links">
