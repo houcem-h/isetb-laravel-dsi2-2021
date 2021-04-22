@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->double('msrp', 12, 3);
             $table->enum('size', ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL']);
             $table->string('color');
+            $table->string('picture');
             // $table->unsignedInteger('category_id'); // ou bien
             $table->integer('category_id')->unsigned();
             $table->timestamps();
