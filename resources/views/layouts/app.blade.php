@@ -21,7 +21,8 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        {{------------------------------------------------ Navigation ------------------------------------------------}}
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -71,10 +72,14 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
+        {{------------------------------------------------ Page Content ------------------------------------------------}}
+        <main class="container py-4">
             @yield('content')
         </main>
+        {{------------------------------------------------ Footer------------------------------------------------}}
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
+        </footer>
     </div>
 </body>
 </html>
