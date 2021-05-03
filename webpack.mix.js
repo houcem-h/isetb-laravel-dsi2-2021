@@ -13,4 +13,10 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
-    .styles('resources/css/custom.css', 'public/css');
+    .styles([
+        'resources/css/dashboard.css',
+        'resources/css/adminExtra.css',
+    ], 'public/css/admin.css')
+    .scripts([
+        'resources/js/dashboard.js'
+    ], 'public/js/admin.js');
