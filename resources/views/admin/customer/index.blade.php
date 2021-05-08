@@ -1,15 +1,15 @@
 @extends('layouts.admin')
 
 @section('main')
-    <h3>Customers list</h3>
+    <h3><i class="fas fa-users"></i> Customers list</h3>
     <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Email</th>
-            <th scope="col">Opérations</th>
+            <th scope="col"><i class="fas fa-user"></i> Name</th>
+            <th scope="col"><i class="fas fa-phone"></i> Phone</th>
+            <th scope="col"><i class="fas fa-at"></i> Email</th>
+            <th scope="col"><i class="fas fa-cogs"></i> Opérations</th>
           </tr>
         </thead>
         <tbody>
@@ -20,9 +20,9 @@
               <td>{{ $customer->phone }}</td>
               <td>{{ $customer->email }}</td>
               <td>
-                  <a href="#" class="btn btn-info">show</a>
-                  <a href="#" class="btn btn-warning">Edit</a>
-                  <a href="#" class="btn btn-danger">Delete</a>
+                  <a href="#" class="btn btn-info" title="Show details about {{ $customer->firstname.' '.$customer->lastname  }}"><i class="fas fa-user-tag"></i></a>
+                  <a href="#" class="btn btn-warning" title="Edit user {{ $customer->firstname.' '.$customer->lastname  }}"><i class="fas fa-user-edit"></i></a>
+                  <a href="#" class="btn btn-danger" title="Delete user {{ $customer->firstname.' '.$customer->lastname  }}"><i class="fas fa-user-slash"></i></a>
               </td>
             </tr>
             @endforeach
