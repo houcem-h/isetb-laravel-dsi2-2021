@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('main')
+    <a href="{{ route('customers.create') }}" class="btn btn-outline-primary float-right"><i class="fas fa-user-plus"></i> Add new Customer</a>
     <h3><i class="fas fa-users"></i> Customers list</h3>
     <table class="table table-hover">
         <thead>
