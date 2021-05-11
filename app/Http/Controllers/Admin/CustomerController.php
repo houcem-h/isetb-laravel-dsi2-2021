@@ -25,7 +25,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.customer.create');
     }
 
     /**
@@ -36,7 +36,27 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $validatedData = $request->validate([
+            'firstname' => 'required|min:2',
+            'lastname' => 'required|min:2',
+            'phone' => 'required',
+            'email' => 'required|email',
+            'address' => 'required',
+        ]);
+        // 1st method
+        // $customer = new Customer;
+        // $customer->firstname = $request->firstname;
+        // $customer->lastname = $request->lastname;
+        // $customer->phone = $request->phone;
+        // $customer->email = $request->email;
+        // $customer->address = $request->address;
+        // $customer->save();
+
+        // 2nd method : mass assignment
+        $customer = Customer::create($validatedData);
+
+        return redirect()->route('customers.show', $customer);
     }
 
     /**
