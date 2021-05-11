@@ -20,7 +20,7 @@
               <td>{{ $customer->phone }}</td>
               <td>{{ $customer->email }}</td>
               <td>
-                  <a href="#" class="btn btn-info" title="Show details about {{ $customer->firstname.' '.$customer->lastname  }}"><i class="fas fa-user-tag"></i></a>
+                  <a href="{{ route('customers.show', ['customer' => $customer->id]) }}" class="btn btn-info" title="Show details about {{ $customer->firstname.' '.$customer->lastname  }}"><i class="fas fa-user-tag"></i></a>
                   <a href="#" class="btn btn-warning" title="Edit user {{ $customer->firstname.' '.$customer->lastname  }}"><i class="fas fa-user-edit"></i></a>
                   <a href="#" class="btn btn-danger" title="Delete user {{ $customer->firstname.' '.$customer->lastname  }}"><i class="fas fa-user-slash"></i></a>
               </td>
