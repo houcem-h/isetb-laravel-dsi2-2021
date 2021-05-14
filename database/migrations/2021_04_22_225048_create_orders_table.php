@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->double('tax_rate', 5, 2);
             $table->double('tax_amount', 10, 3)->nullable();
             $table->timestamps();
-            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
