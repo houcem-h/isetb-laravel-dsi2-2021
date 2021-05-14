@@ -37,13 +37,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         // dd($request);
-        $validatedData = $request->validate([
-            'firstname' => 'required|min:2',
-            'lastname' => 'required|min:2',
-            'phone' => 'required',
-            'email' => 'required|email',
-            'address' => 'required',
-        ]);
+        $validatedData = $request->validate($this->validationRules());
         // 1st method
         // $customer = new Customer;
         // $customer->firstname = $request->firstname;
@@ -90,13 +84,7 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        $validatedData = $request->validate([
-            'firstname' => 'required|min:2',
-            'lastname' => 'required|min:2',
-            'phone' => 'required',
-            'email' => 'required|email',
-            'address' => 'required',
-        ]);
+        $validatedData = $request->validate($this->validationRules());
         // 1st method
         // $customer->firstname = $request->firstname;
         // $customer->lastname = $request->lastname;
@@ -120,5 +108,16 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         //
+    }
+
+    private function validationRules()
+    {
+        return [
+            'firstname' => 'required|min:2',
+            'lastname' => 'required|min:2',
+            'phone' => 'required',
+            'email' => 'required|email',
+            'address' => 'required',
+        ];
     }
 }
