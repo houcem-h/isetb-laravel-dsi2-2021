@@ -78,7 +78,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('admin.customer.edit', ['customer' => $customer]);
     }
 
     /**
@@ -90,7 +90,25 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $validatedData = $request->validate([
+            'firstname' => 'required|min:2',
+            'lastname' => 'required|min:2',
+            'phone' => 'required',
+            'email' => 'required|email',
+            'address' => 'required',
+        ]);
+        // 1st method
+        // $customer->firstname = $request->firstname;
+        // $customer->lastname = $request->lastname;
+        // $customer->phone = $request->phone;
+        // $customer->email = $request->email;
+        // $customer->address = $request->address;
+        // $customer->save();
+
+        // 2nd method : mass assignment
+        $customer->update($validatedData);
+
+        return redirect()->route('customers.show', $customer);
     }
 
     /**

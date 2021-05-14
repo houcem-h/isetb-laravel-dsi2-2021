@@ -11,7 +11,9 @@
                 <li class="list-group-item"><i class="fas fa-map-marked-alt"></i> {{ $customer->address }}</li>
             </ul>
             <hr>
-            <a href="#" class="btn btn-warning" title="Edit user {{ $customer->firstname.' '.$customer->lastname  }}"><i class="fas fa-user-edit"></i></a>
+            <a href="{{ route('customers.edit', ['customer' => $customer->id]) }}" class="btn btn-warning" title="Edit user {{ $customer->firstname.' '.$customer->lastname  }}">
+                <i class="fas fa-user-edit"></i>
+            </a>
             <a href="#" class="btn btn-danger" title="Delete user {{ $customer->firstname.' '.$customer->lastname  }}"><i class="fas fa-user-slash"></i></a>
         </div>
       </div>
