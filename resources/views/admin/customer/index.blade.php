@@ -1,6 +1,14 @@
 @extends('layouts.admin')
 
 @section('main')
+@if (session('deleteCustomer'))
+    <div class="alert alert-dismissible alert-success fade show" role="alert">
+        {{ session('deleteCustomer') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
     <a href="{{ route('customers.create') }}" class="btn btn-outline-primary float-right"><i class="fas fa-user-plus"></i> Add new Customer</a>
     <h3><i class="fas fa-users"></i> Customers list</h3>
     <table class="table table-hover">

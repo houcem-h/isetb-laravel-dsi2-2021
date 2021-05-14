@@ -50,7 +50,7 @@ class CustomerController extends Controller
         // 2nd method : mass assignment
         $customer = Customer::create($validatedData);
 
-        return redirect()->route('customers.show', $customer);
+        return redirect()->route('customers.show', $customer)->with('storeCustomer', "Cusomer has been added successfuly");
     }
 
     /**
@@ -96,7 +96,7 @@ class CustomerController extends Controller
         // 2nd method : mass assignment
         $customer->update($validatedData);
 
-        return redirect()->route('customers.show', $customer);
+        return redirect()->route('customers.show', $customer)->with('updateCustomer', "Cusomer has been updated successfuly");
     }
 
     /**
@@ -108,7 +108,7 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         $customer->delete();
-        return redirect()->route('customers.index');
+        return redirect()->route('customers.index')->with('deleteCustomer', 'Customer has been deleted!');
     }
 
     private function validationRules()
