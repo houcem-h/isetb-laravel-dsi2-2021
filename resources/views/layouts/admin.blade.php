@@ -59,27 +59,27 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart"></span>
-              Products
+              <a class="nav-link" href="{{ route('customers.index') }}">
+                <span data-feather="users"></span>
+                Customers
             </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/customers">
-              <span data-feather="users"></span>
-              Customers
-            </a>
-          </li>
-          <li class="nav-item">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span data-feather="shopping-cart"></span>
+            Products
+          </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Reports
+                <span data-feather="bar-chart-2"></span>
+                Categories
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="layers"></span>
-              Integrations
+              Users
             </a>
           </li>
         </ul>

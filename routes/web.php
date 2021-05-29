@@ -11,14 +11,22 @@
 |
 */
 
-
-Route::get('/', 'HomeController@welcome');
+Route::get('/', 'HomeController@welcome')->name('welcome');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin-dashboard', function () {
-    return view('admin.dashboard');
-})->middleware('auth', 'admin')->name('admin.dashboard');
-Route::resource('customers', 'Admin\CustomerController');
+    // admin middleware route group
+    Route::middleware('admin')->namespace('Admin')->prefix('admin')->group(function () {
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard');
+        })->name('admin.dashboard');
+        Route::resource('customers', 'CustomerController');
+        Route::resource('products', 'ProductController');
+        Route::resource('categories', 'CategoryController');
+        Route::resource('users', 'UserController');
+        Route::resource('orders', 'OrderController');
+    });
+});
