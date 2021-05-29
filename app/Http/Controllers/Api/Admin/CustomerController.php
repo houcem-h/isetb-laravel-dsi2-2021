@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Customer;
 
 class CustomerController extends Controller
 {
@@ -14,7 +15,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Customer::all());
     }
 
     /**
@@ -36,7 +37,7 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json(Customer::find($id));
     }
 
     /**
