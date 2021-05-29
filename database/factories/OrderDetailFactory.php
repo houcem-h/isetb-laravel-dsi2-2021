@@ -13,6 +13,5 @@ $factory->define(OrderDetail::class, function (Faker $faker) {
         'order_id' => Order::get('id')->random(),
         'price' => $faker->randomFloat(3, 0, 999999),
         'quantity' => $faker->randomDigit,
-
     ];
 });
