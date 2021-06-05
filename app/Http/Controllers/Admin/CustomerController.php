@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Customer;
 use App\Http\Controllers\Controller;
+use App\Mail\NewCustomer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CustomerController extends Controller
 {
@@ -49,6 +51,8 @@ class CustomerController extends Controller
 
         // 2nd method : mass assignment
         $customer = Customer::create($validatedData);
+
+        Mail::to($customer->email)->send(new NewCustomer($customer));
 
         return redirect()->route('customers.show', $customer)->with('storeCustomer', "Cusomer has been added successfuly");
     }
